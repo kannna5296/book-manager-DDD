@@ -48,3 +48,8 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+mybatisGenerator {
+	verbose = true
+	configFile = "${projectDir}/src/main/resources/generatorConfig.xml"
+}
