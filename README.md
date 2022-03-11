@@ -5,3 +5,10 @@ Kotlin練習リポジトリ
 
 元リポジトリはこちら
 https://github.com/n-takehata/kotlin-server-side-programming-practice
+
+## わかってないこと
+
+・MapperとRepositoryの住み分け
+・そもそもORmapperどうしよう
+
+・拡張プロパティとは
