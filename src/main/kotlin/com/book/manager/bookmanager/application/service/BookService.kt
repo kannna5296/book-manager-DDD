@@ -1,5 +1,7 @@
 package com.book.manager.bookmanager.application.service
 
+//「アプリケーションサービスがインフラに依存する
+//interfaceにのみ依存（依存性逆転ナントカ即）
 import com.book.manager.bookmanager.domain.model.BookWithRental
 import com.book.manager.bookmanager.domain.repository.BookRepository
 import org.springframework.stereotype.Service

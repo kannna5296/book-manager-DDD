@@ -6,17 +6,21 @@ Kotlin練習リポジトリ
 元リポジトリはこちら
 https://github.com/n-takehata/kotlin-server-side-programming-practice
 
-## わかってないこと
+## わかってないこと・感想
 
-・MapperとRepositoryの住み分け
-・そもそもORmapperどうしよう
+### DDD話
+ * MapperとRepositoryの住み分け
 
-・拡張プロパティとは
+ * そもそもORmapperどうしよう
+ 
+ * ドメイン層にRepositoryのIFがあって、インフラ層にRepositoryのImplがある。コレなんで？
 
-
+### Kotlin話
 ```
   val bookList = bookService.getList().map {
     //itって何やねんと思ったらiteratorでした（ループ回すと同義）
     BookInfo(it)
   }
 ```
+
+。
