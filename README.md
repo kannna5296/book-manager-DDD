@@ -12,3 +12,11 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
 ・そもそもORmapperどうしよう
 
 ・拡張プロパティとは
+
+
+```
+  val bookList = bookService.getList().map {
+    //itって何やねんと思ったらiteratorでした（ループ回すと同義）
+    BookInfo(it)
+  }
+```
