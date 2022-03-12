@@ -5,6 +5,7 @@ import com.book.manager.bookmanager.domain.model.BookWithRental
 import com.book.manager.bookmanager.domain.model.Rental
 import com.book.manager.bookmanager.domain.repository.BookRepository
 import com.book.manager.bookmanager.infra.database.mapper.BookMapper
+import com.book.manager.bookmanager.infra.database.mapper.custom.BookWithRentalMapper
 import com.book.manager.bookmanager.infra.database.mapper.custom.BookWithRentalRecord
 import com.book.manager.bookmanager.infra.database.record.BookRecord
 import org.springframework.stereotype.Repository
@@ -13,17 +14,17 @@ import java.time.LocalDate
 @Suppress("SpringJavaInjectionPointsAutowiringInspection")
 @Repository
 class BookRepositoryImpl(
-    private val bookWithRentalMapper: BookWithRentalRecord,
+    private val bookWithRentalMapper: BookWithRentalMapper,
     private val bookMapper: BookMapper
 ) : BookRepository {
 
-//    override fun findAllWithRental(): List<BookWithRental> {
-//        return bookWithRentalMapper.select().map { toModel(it) }
-//    }
-//
-//    override fun findWithRental(id: Long): BookWithRental? {
-//        return bookWithRentalMapper.selectByPrimaryKey(id)?.let { toModel(it) }
-//    }
+    override fun findAllWithRental(): List<BookWithRental> {
+        return bookWithRentalMapper.select().map { toModel(it) }
+    }
+
+    override fun findWithRental(id: Long): BookWithRental? {
+        return bookWithRentalMapper.selectByPrimaryKey(id)?.let { toModel(it) }
+    }
 
     override fun register(book: Book) {
         bookMapper.insert(toRecord(book))
