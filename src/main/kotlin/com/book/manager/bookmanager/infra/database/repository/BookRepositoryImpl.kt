@@ -43,14 +43,14 @@ class BookRepositoryImpl(
             record.id!!,
             record.title!!,
             record.author!!,
-            record.release_date!!
+            record.releaseDate!!
         )
         val rental = record.userId?.let {
             Rental(
                 record.id!!,
                 record.userId!!,
-                record.rental_datetime!!,
-                record.return_deadline!!
+                record.rentalDatetime!!,
+                record.returnDeadline!!
             )
         }
         return BookWithRental(book, rental)
