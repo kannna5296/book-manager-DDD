@@ -9,11 +9,13 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
 ## わかってないこと・感想
 
 ### DDD話
- * MapperとRepositoryの住み分け
+ * MapperとRepositoryの住み分け、ちゃんと理解したい
 
- * そもそもORmapperどうしよう
+ * そもそもORmapperどうしよう（JPA？MyBatis？JOOQ？）
  
- * ドメイン層にRepositoryのIFがあって、インフラ層にRepositoryのImplがある。コレなんで？
+ * ドメイン層にRepositoryのIFがあって、インフラ層にRepositoryのImplがある。コレなんで？そういうもん？
+
+ * 「重複を許さない」みたいなチェックがアプリケーションサービスにあるのはなんで？（ドメインモデルが持ってるもののイメージだった）
 
 ### Kotlin話
 ```
@@ -22,5 +24,7 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
     BookInfo(it)
   }
 ```
+
+* 〜letって何？
 
 。
