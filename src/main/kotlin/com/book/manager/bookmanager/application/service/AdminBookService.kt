@@ -15,7 +15,7 @@ class AdminBookService(
 ) {
     @Transactional
     fun register(book: Book) {
-        //これ値オブジェクトで管理するのもあり？
+        //TODO これBookオブジェクトで管理するのもあり？ >ドメインモデルに凝集させる
         bookRepository.findWithRental(book.id)?.let {
             throw IllegalArgumentException("既に存在する書籍ID: ${book.id}")
         }
@@ -24,14 +24,14 @@ class AdminBookService(
 
     @Transactional
     fun update(bookId: Long, title: String?, author: String?, releaseDate: LocalDate?) {
-        //これ値オブジェクトで管理するのもあり？
+        //TODO これBookオブジェクトで管理するのもあり？ >ドメインモデルに凝集させる
         bookRepository.findWithRental(bookId) ?: throw IllegalArgumentException("存在しない書籍ID: $bookId")
         bookRepository.update(bookId, title, author, releaseDate)
     }
 
     @Transactional
     fun delete(bookId: Long) {
-        //これ値オブジェクトで管理するのもあり？
+        //TODO これBookオブジェクトで管理するのもあり？ >ドメインモデルに凝集させる
         bookRepository.findWithRental(bookId) ?: throw IllegalArgumentException("存在しない書籍ID: $bookId")
         bookRepository.delete(bookId)
     }
