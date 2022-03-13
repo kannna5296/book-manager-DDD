@@ -10,6 +10,9 @@ interface UserMapper {
 
     //主キー検索
     @Select("SELECT id, email, password, name, role_type FROM user WHERE id = #{id}")
-    fun select(id: Long): UserRecord
+    fun selectOne(id: Long): UserRecord
+
+    @Select("SELECT id, email, password, name, role_type FROM user WHERE id = #{email}")
+    fun selectOne(email: String): UserRecord
 
 }
