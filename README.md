@@ -26,6 +26,7 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
 ```
 
 * 〜letって何？
+* openついてないクラスとSealdクラス、両方継承できないが、何が違うんや？明示的に示すだけか？
 
 ## 直接関係ないけどメモ
 
@@ -34,3 +35,18 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
 * 業務データと業務ロジックをまとめたもの > ドメインオブジェクト
 * ちゃんとまとまっている状態 > "凝集度が高い"
 * 最初によく思いつくドメインオブジェクトはでかくなりがち（注文クラスとか） >商品・数量・金額・納期とか小さいドメインオブジェクトに分けていく
+
+### Kotlinめも
+
+* List,Mapの生成がJavaとちょっと違う（イミュータブル、ミュータブル指定できたり）
+* 変数定義、valはイミュータブル変数、varはミュータブル変数
+* if,Whenを式として使える（JavaのVerナントカからあった気もする）
+* gettersetterはプロパティ定義すると勝手にできるので明示的に実装不要（デフォルトでLombok入ってるみたいな感じ）
+    * val変数にはgetterのみできる（Kotlin側で自動的にやってくれる、イミュータブルなので当然）
+    * カスタムで実装すること自体は可能（NULLの時デフォルト設定する、とか）￥
+* lateinit（プロパティ初期化）いつ要るんやこれ
+
+* データクラス（toString,hashCode,equals,componentN,copyが自動実装される
+    * hachCodeて何に使うんやっけ？（JavaGoldの知見だった気もする） 
+
+* デフォルト引数と名前付き引数（続き）　
