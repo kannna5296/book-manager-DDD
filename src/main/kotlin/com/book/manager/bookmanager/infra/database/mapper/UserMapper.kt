@@ -13,6 +13,6 @@ interface UserMapper {
     fun selectOne(id: Long): UserRecord
 
     @Select("SELECT id, email, password, name, role_type FROM user WHERE id = #{email}")
-    fun selectOne(email: String): UserRecord
+    fun selectOneByEmail(email: String): UserRecord
 
 }
