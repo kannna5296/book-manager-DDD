@@ -52,6 +52,7 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
 * デフォルト引数と名前付き引数（引数への代入を事前にやっといてインスタンス生成時に省略できる）
 
 #### 関数型、高階関数、タイプエイリアス
+Javaでいう関数型インターフェースてきなやつ
 * 関数型　関数を変数として定義する
 ```
 val calc: (Int, Int) -> Int = {num1: Int, num2: Int -> num1 * num2 }
