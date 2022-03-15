@@ -2,8 +2,8 @@ CREATE TABLE [dbo].[user](
     [id] [bigint] NOT NULL,
     [email] [varchar](256) UNIQUE NOT NULL,
     [password] [varchar](128) NOT NULL,
-    [name] [varchar](32) NOT NULL,
-    [role_type] [varchar](10) NOT NULL,
+    [name] [nvarchar](32) NOT NULL,
+    [role_type] [nvarchar](10) NOT NULL,
     PRIMARY KEY CLUSTERED([id] ASC) WITH(
         PAD_INDEX = OFF,
         STATISTICS_NORECOMPUTE = OFF,
@@ -19,8 +19,8 @@ ON  [PRIMARY]
 
 CREATE TABLE [dbo].[book](
     [id] [bigint] NOT NULL,
-    [title] [varchar](128) UNIQUE NOT NULL,
-    [author] [varchar](32) NOT NULL,
+    [title] [nvarchar](128) UNIQUE NOT NULL,
+    [author] [nvarchar](32) NOT NULL,
     [release_date] [date] NOT NULL,
     PRIMARY KEY CLUSTERED([id] ASC) WITH(
         PAD_INDEX = OFF,

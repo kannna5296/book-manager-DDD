@@ -49,4 +49,46 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
 * データクラス（toString,hashCode,equals,componentN,copyが自動実装される
     * hachCodeて何に使うんやっけ？（JavaGoldの知見だった気もする） 
 
-* デフォルト引数と名前付き引数（続き）　
+* デフォルト引数と名前付き引数（引数への代入を事前にやっといてインスタンス生成時に省略できる）
+
+#### 関数型、高階関数、タイプエイリアス
+* 関数型　関数を変数として定義する
+```
+val calc: (Int, Int) -> Int = {num1: Int, num2: Int -> num1 * num2 }
+```
+
+* 高階関数 関数型のオブジェクトを引数として受け取る
+```
+  fun printCalcResult(num1: Int, num2: Int, calc: (Int, Int) -> Int) {
+    val result = calc(num1,num2)
+    println(result)
+  }
+```
+
+```
+  //どんな計算するかは呼び出す時に決定
+  printCalcResult(1,10, { num1, num2 -> num1 + num2 }
+  printCalcResult(1,10, { num1, num2 -> num1 * num2 }
+```
+
+* タイプエイリアス 関数型を複数の場所で使い回すための型を定義（変数定義ではない）
+```
+  typealias Calc = (Int, Int) -> Int
+```
+
+```
+  fun printCalcResult(num1: Int, num2: Int, calc: Calc) {
+    val result = calc(num1,num2)
+    println(result)
+  }
+```
+
+#### 拡張関数
+* Kotlin標準のクラスに対して独自関数を突っ込むことができる
+
+```
+  fun Int:square(): Int = this * this
+  fun main() {
+    println(2.square)
+  }
+```
