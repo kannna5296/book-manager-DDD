@@ -38,6 +38,9 @@ https://github.com/n-takehata/kotlin-server-side-programming-practice
 
 ### Kotlinめも
 
+* 継承
+* コンストラクタ
+
 * List,Mapの生成がJavaとちょっと違う（イミュータブル、ミュータブル指定できたり）
 * 変数定義、valはイミュータブル変数、varはミュータブル変数
 * if,Whenを式として使える（JavaのVerナントカからあった気もする）
@@ -93,3 +96,43 @@ val calc: (Int, Int) -> Int = {num1: Int, num2: Int -> num1 * num2 }
     println(2.square)
   }
 ```
+
+#### スコープ関数
+
+* with 複数の処理をまとめて行う
+* run Nullableなオブジェクトに複数の処理をまとめて行う
+* let Nullableなオブジェクトに名前をつけて処理を行う
+* apply　オブジェクトに変更を加えて返す
+* also オブジェクトに名前をつけて変更を加えて返す
+
+## KotlinとJavaギャップ
+
+* デフォルトで変数がNull代入不可（nullが代入されるとコンパイルエラー）
+    * `var check: String? = "Kotlin"` null代入できる
+    * ↑の場合、check変数からはセーフコール演算子(?)か非NULL宣言演算子(!!)でしかメソッドを呼べない
+    * セーフコール演算子...値がNULLでない時のみメソッドが呼ばれる。　`check?.length`
+    * 非NULL表明演算子...NULLだろうが何だろうがメソッドを呼ぶ NULLの場合は当然NullPointerException 基本的には非推奨？？ `check!!.length`
+* 変数定義でval(再代入不可能)var(可能)を指定
+* 変数定義時にstatic指定できない。インスタンス生成せずにメソッドを呼ぶには、companionObjectなるものを使う。
+* クラス定義時、元々final(継承不可)。 継承させるにはアクセス修飾子としてOpenをつける　Sealdっていうアクセス修飾子もあるけど何で居るのかようわからん
+* getter/setterの定義不要（コレに伴いLombokも実質不要）
+* コンストラクタの作り方がちょっと特殊（プライマリコンストラクタ、セカンダリコンストラクタ）
+    * プライマリコンストラクタ...クラス定義時の引数みたいなやつ　デフォルト値登録可能
+    * セカンダリコンストラクタ...いわゆるJavaで書いてたコンストラクタ
+```
+Java に比べて、Kotlin では複数のコンストラクタを持つクラスは一般的ではありません。
+なぜならば、Javaでオーバーロードによって複数のコンストラクタを必要とする状況は、Kotlin では引数のデフォルト値と名前付き引数によってカバーされるからです。 
+```
+ほんまか？？引用元は[こちら](https://blog.y-yuki.net/entry/2019/05/25/093000)
+
+* List,Mapの生成がJavaとちょっと違う（イミュータブル、ミュータブル指定できたりする、ListOfなど）
+* Streamなしでもコレクションにいろいろアクセスできる
+  https://kotlinlang.org/docs/java-to-kotlin-collections-guide.html#operations-on-any-collection-type
+
+## Kotlin慣れに良いサイト（たぶん）
+
+https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html　<br>
+https://kotlinlang.org/docs/java-to-kotlin-collections-guide.html#operations-on-any-collection-type　<br>
+公式。Javaでこう書いてたものがKotlinだとこう、みたいな感じ
+
+公式。H2DV
