@@ -136,3 +136,14 @@ https://kotlinlang.org/docs/java-to-kotlin-collections-guide.html#operations-on-
 公式。Javaでこう書いてたものがKotlinだとこう、みたいな感じ
 
 公式。H2DV
+
+
+## 規約になりそうなこと（思いつくままに）
+
+* Javaライクに末尾に「;」つけるか否か > detektがやってくれそう
+* 未使用の変数定義をしない 
+    * IntelliJで警告される「Variable hoge is never used」 
+* Kotlinの仕様に甘えて(?)型推論を使うか否か
+
+* (コードレビュー観点にもなりそう)その変数はvarじゃないとダメか？
+    * 使えるならval(再代入不可)にしたい 
