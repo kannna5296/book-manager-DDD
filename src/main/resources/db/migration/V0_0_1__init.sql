@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[user](
     [id] [bigint] NOT NULL,
-    [email] [varchar](256) UNIQUE NOT NULL,
-    [password] [varchar](128) NOT NULL,
+    [email] [nvarchar](256) UNIQUE NOT NULL,
+    [password] [nvarchar](128) NOT NULL,
     [name] [nvarchar](32) NOT NULL,
     [role_type] [nvarchar](10) NOT NULL,
     PRIMARY KEY CLUSTERED([id] ASC) WITH(
