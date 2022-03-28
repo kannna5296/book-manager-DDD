@@ -74,7 +74,7 @@ https://fukuchiharuki.me/static/pukiwikidump/page/Spring%20Boot/Kotlin%E3%81%A7C
 
 ロジックを頑張って書いて実装されがちなイメージ
 
-3/29　話題
+3/29　話題<br>
 ★「kotlin標準を使っていく」が良いと思う<br>
 ★「バリデーション」って何を指す？<br>
 ★アノテーションとか使う？ @field(おまじない)が必要そうなので個人的にはあんまり推しでない<br>
