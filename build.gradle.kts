@@ -33,10 +33,11 @@ dependencies {
 	//implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.2.1")
 	implementation("org.flywaydb:flyway-core")
 	//TODO そのうちSQLServerに変えたい
-	implementation("com.microsoft.sqlserver:mssql-jdbc")
 	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	implementation("org.springframework.session:spring-session-data-redis")
+	implementation("redis.clients:jedis")
 }
 
 tasks.withType<KotlinCompile> {
