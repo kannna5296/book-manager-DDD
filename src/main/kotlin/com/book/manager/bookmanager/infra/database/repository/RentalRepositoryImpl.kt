@@ -20,6 +20,10 @@ class RentalRepositoryImpl(
         rentalMapper.insert(toRecord(rental))
     }
 
+    override fun endRental(bookId: Long) {
+        rentalMapper.deleteByPrimaryKey(bookId)
+    }
+
     private fun toRecord(model: Rental): RentalRecord{
         return RentalRecord(model.bookId, model.userId, model.rentalDatetime, model.returnDeadline)
     }
