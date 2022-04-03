@@ -22,7 +22,7 @@ interface UserMapper {
         Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR),
         Result(column = "role_type", property = "roleType", jdbcType = JdbcType.VARCHAR),
     ])
-    @Select("SELECT id, email, password, name, role_type FROM [user] WHERE id = #{email}")
+    @Select("SELECT id, email, password, name, role_type FROM [user] WHERE email = #{email}")
     fun selectOneByEmail(email: String): UserRecord
 
     @Results(value =[
