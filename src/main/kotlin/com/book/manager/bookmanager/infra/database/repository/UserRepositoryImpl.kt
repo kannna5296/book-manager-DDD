@@ -17,6 +17,11 @@ class UserRepositoryImpl(
         return record?.let { toModel(it) }
     }
 
+    override fun find(id: Long): User? {
+        val record = userMapper.selectByPrimaryKey(id)
+        return record?.let { toModel(it) }
+    }
+
     private fun toModel(record: UserRecord): User {
         return User(
             record.id!!,

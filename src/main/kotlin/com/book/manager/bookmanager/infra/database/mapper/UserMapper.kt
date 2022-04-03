@@ -25,4 +25,14 @@ interface UserMapper {
     @Select("SELECT id, email, password, name, role_type FROM [user] WHERE id = #{email}")
     fun selectOneByEmail(email: String): UserRecord
 
+    @Results(value =[
+        Result(column = "id", property = "id", jdbcType = JdbcType.BIGINT, id = true),
+        Result(column = "email", property = "email", jdbcType = JdbcType.VARCHAR),
+        Result(column = "password", property = "password", jdbcType = JdbcType.VARCHAR),
+        Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR),
+        Result(column = "role_type", property = "roleType", jdbcType = JdbcType.VARCHAR),
+    ])
+    @Select("SELECT id, email, password, name, role_type FROM [user] WHERE id = #{id}")
+    fun selectByPrimaryKey(id: Long): UserRecord
+
 }
