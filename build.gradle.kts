@@ -32,7 +32,7 @@ dependencies {
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2")
 	//implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.2.1")
 	implementation("org.flywaydb:flyway-core")
-	//TODO そのうちSQLServerに変えたい
+	implementation("com.microsoft.sqlserver:mssql-jdbc")
 	compileOnly("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
