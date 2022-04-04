@@ -25,11 +25,12 @@ spring:
           globally-quoted_indentifiers: true
           dialect: org.hibernate.spatial.dialect.sqlserver.SqlServer2008SpatialDialect
     output.ansi.enabled: always
-
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
-
     flyway:
       baselineVersion: 0.0.0
       baseline-on-migrate: true
+logging:
+  level:
+    root: INFO
