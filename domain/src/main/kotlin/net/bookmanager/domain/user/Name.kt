@@ -6,8 +6,8 @@ data class Name(val value: String) {
         checkName(value)
     }
 
-    private fun checkName(
-        require(value.length >= 8) {}
-        require(value.length < 20) {}
-    )
+    private fun checkName(value: String){
+        require(value.isNotEmpty()) {}
+        require(value.length <= 20) {}
+    }
 }
