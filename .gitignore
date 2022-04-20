@@ -3,6 +3,9 @@
 .idea/
 
 domain/build/
+usecase/build/
+presentation/build/
+infra/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
