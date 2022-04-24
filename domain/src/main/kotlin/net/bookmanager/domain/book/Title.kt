@@ -1,6 +1,8 @@
 package net.bookmanager.domain.book
 
-data class Title(val value: String) {
+import net.bookmanager.domain.ValueObject
+
+data class Title(val value: String): ValueObject {
 
     init {
         validateTitle(value)

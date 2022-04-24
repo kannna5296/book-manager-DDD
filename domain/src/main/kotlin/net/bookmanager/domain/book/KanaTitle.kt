@@ -1,6 +1,8 @@
 package net.bookmanager.domain.book
 
-data class KanaTitle(val value:String) {
+import net.bookmanager.domain.ValueObject
+
+data class KanaTitle(val value:String): ValueObject {
 
     companion object {
         val ZENKAKU_REGEX = Regex("^[\\u30A0-\\u30FF]+$")
