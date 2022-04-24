@@ -1,10 +1,10 @@
 package net.bookmanager.domain.rental
 
 class Rental(id: Int? = null,
-             userId: Int,
-             bookId: Int,
-             var rentalDate: RentalDate,
-             var returnDeadLine: ReturnDeadLine) {
+             val userId: Int,
+             val bookId: Int,
+             val rentalDate: RentalDate,
+             val returnDeadLine: ReturnDeadLine) {
 
     //ファクトリメソッド
     companion object{
