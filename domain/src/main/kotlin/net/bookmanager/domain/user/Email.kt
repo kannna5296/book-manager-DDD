@@ -1,6 +1,8 @@
 package net.bookmanager.domain.user
 
-data class Email(val value: String) {
+import net.bookmanager.domain.ValueObject
+
+data class Email(val value: String) :ValueObject{
 
     companion object {
         val EMAIL_REGEX = Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})");

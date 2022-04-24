@@ -1,6 +1,8 @@
 package net.bookmanager.domain.user
 
-data class Name(val value: String) {
+import net.bookmanager.domain.ValueObject
+
+data class Name(val value: String) :ValueObject{
 
     init {
         checkName(value)

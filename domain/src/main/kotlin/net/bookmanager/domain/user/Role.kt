@@ -1,6 +1,8 @@
 package net.bookmanager.domain.user
 
-enum class Role {
+import net.bookmanager.domain.ValueObject
+
+enum class Role :ValueObject{
     ADMIN,
     USER
 }

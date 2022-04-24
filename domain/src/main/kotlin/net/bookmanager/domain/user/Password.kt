@@ -1,6 +1,8 @@
 package net.bookmanager.domain.user
 
-data class Password(val value: String) {
+import net.bookmanager.domain.ValueObject
+
+data class Password(val value: String) :ValueObject{
 
     companion object{
         val REGEX_ALPHA_NUM = Regex("^[A-Za-z0-9]+$") // 半角英数字のみ
