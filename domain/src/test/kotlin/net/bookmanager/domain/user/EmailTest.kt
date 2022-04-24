@@ -2,6 +2,7 @@ package net.bookmanager.domain.user
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class EmailTest{
 
@@ -15,21 +16,18 @@ class EmailTest{
     @Test
     fun `@以下ドットなし_作成不可`(){
         val input = "someone@com"
-        val target = Email(input)
-        assertEquals(target.value, input)
+        assertFailsWith<IllegalArgumentException> { Email(input) }
     }
 
     @Test
-    fun `@以下なし`(){
+    fun `@以下なし_作成不可`(){
         val input = "someone@"
-        val target = Email(input)
-        assertEquals(target.value, input)
+        assertFailsWith<IllegalArgumentException> { Email(input) }
     }
 
     @Test
-    fun `@始まり`(){
+    fun `@始まり_作成不可`(){
         val input = "@gmail.com"
-        val target = Email(input)
-        assertEquals(target.value, input)
+        assertFailsWith<IllegalArgumentException> { Email(input) }
     }
 }
