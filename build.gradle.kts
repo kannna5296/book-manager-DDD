@@ -37,15 +37,10 @@ subprojects {
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		implementation("org.springframework.boot:spring-boot-starter-security")
-		implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2")
+
 
 		implementation("org.flywaydb:flyway-core")
-		implementation("com.microsoft.sqlserver:mssql-jdbc")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
-
-		implementation("org.springframework.session:spring-session-data-redis")
-		implementation("redis.clients:jedis")
-		implementation("org.springframework.boot:spring-boot-starter-aop")
 		testImplementation(kotlin("test"))
 	}
 }
