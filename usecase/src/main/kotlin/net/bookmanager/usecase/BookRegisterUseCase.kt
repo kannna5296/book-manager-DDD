@@ -11,7 +11,7 @@ import net.bookmanager.domain.book.IBookRepository
 class BookRegisterUseCase(
     private val bookRepository: IBookRepository
 ) {
-    fun register(param: BookRegisterParam){
+    fun register(param: BookRegisterParam): BookRegisterResponse{
         val book = Book(
             title = Title(param.title),
             kanaTitle = KanaTitle(param.kanaTitle),
@@ -19,6 +19,7 @@ class BookRegisterUseCase(
             kanaAuthor = KanaAuthor(param.kanaAuthor),
             releaseDate = ReleaseDate(param.releaseDate)
         )
-        bookRepository.insert(book)
+        val createdBook = bookRepository.insert(book)
+        return BookRegisterResponse(createdBook)
     }
 }
