@@ -1,4 +1,4 @@
-package net.bookmanager.usecase
+package net.bookmanager.usecase.repository
 
 import net.bookmanager.domain.book.Book
 import net.bookmanager.domain.book.IBookRepository
