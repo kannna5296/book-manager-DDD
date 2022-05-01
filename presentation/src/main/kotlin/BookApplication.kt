@@ -1,5 +1,3 @@
-package net.bookmanager.presentation
-
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
@@ -14,7 +12,6 @@ import org.springframework.context.annotation.ComponentScan
     ]
 )
 class BookApplication
-
 fun main(args: Array<String>) {
     runApplication<BookApplication>(*args)
 }
