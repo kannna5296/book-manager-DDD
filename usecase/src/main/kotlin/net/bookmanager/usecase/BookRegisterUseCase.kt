@@ -7,7 +7,9 @@ import net.bookmanager.domain.book.KanaAuthor
 import net.bookmanager.domain.book.ReleaseDate
 import net.bookmanager.domain.book.Book
 import net.bookmanager.domain.book.IBookRepository
+import org.springframework.stereotype.Service
 
+@Service
 class BookRegisterUseCase(
     private val bookRepository: IBookRepository
 ) {

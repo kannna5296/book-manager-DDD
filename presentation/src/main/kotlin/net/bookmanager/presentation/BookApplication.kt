@@ -8,10 +8,13 @@ import org.springframework.context.annotation.ComponentScan
 @ComponentScan(
     basePackages = [
         "net.bookmanager.domain",
-        "net.bookmanager.usecase"
+        "net.bookmanager.infra",
+        "net.bookmanager.usecase",
+        "net.bookmanager.presentation"
     ]
 )
-class Application
+class BookApplication
+
 fun main(args: Array<String>) {
-    runApplication<Application>(*args)
+    runApplication<BookApplication>(*args)
 }
