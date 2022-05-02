@@ -6,3 +6,7 @@ Kotlin練習リポジトリ
 元リポジトリはこちら
 https://github.com/n-takehata/kotlin-server-side-programming-practice
 
+# やる目的
+チーム開発で詰まった時の検証など
+
+
