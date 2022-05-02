@@ -21,6 +21,7 @@ class RentalEntity(
         return Rental(
             id = id,
             //DBに変な値が入ってた時はNG
+            //TODO 共通化させたい
             userId = UserId(userId ?: throw IllegalStateException("")),
             bookId = BookId(bookId?: throw IllegalStateException("")),
             rentalDate = RentalDate(rentalDate?: throw IllegalStateException("")),
