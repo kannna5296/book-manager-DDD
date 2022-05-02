@@ -3,7 +3,6 @@ package net.bookmanager.usecase.rental
 import net.bookmanager.domain.rental.IRentalRepository
 import net.bookmanager.domain.rental.Rental
 import org.springframework.stereotype.Service
-import java.time.LocalDate
 
 @Service
 class BookRentalUseCase(
