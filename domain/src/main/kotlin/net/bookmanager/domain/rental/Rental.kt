@@ -11,12 +11,13 @@ class Rental(id: Int? = null,
 
     //ファクトリメソッド
     companion object{
-        fun create(userId: Int, bookId: Int, rentalDate: LocalDate):Rental {
+        fun create(userId: Int, bookId: Int):Rental {
+            val now = LocalDate.now()
             return Rental(
                 userId = UserId(userId),
                 bookId = BookId(bookId),
-                rentalDate = RentalDate(rentalDate),
-                returnDeadLine = ReturnDeadLine(rentalDate.plusDays(7))
+                rentalDate = RentalDate(now),
+                returnDeadLine = ReturnDeadLine(now.plusDays(7))
             )
         }
     }

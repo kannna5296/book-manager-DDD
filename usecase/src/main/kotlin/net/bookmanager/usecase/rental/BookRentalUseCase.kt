@@ -13,8 +13,7 @@ class BookRentalUseCase(
         val rental = Rental.create(
             //TODO　ログイン周り整ったらuserIdは追加
             userId = 1,
-            bookId = bookId,
-            rentalDate = LocalDate.now()
+            bookId = bookId
         )
         val createdRental = rentalRepository.insert(rental)
         return BookRentalResponse(createdRental)
