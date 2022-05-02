@@ -13,6 +13,9 @@ class BookRepository(
     override fun insert(book: Book): Book {
         val entity = BookEntity(book)
         bookMapper.insert(entity)
+        //この行からentityにID値が入る(useGeneratedKey)
+        //DomainModelにIDがないのでentityから取得
+        book.id = entity.id
         return book
     }
 

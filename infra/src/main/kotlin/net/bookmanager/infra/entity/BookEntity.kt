@@ -22,6 +22,7 @@ class BookEntity(
     fun toDomainModel(): Book {
         return Book(
             id = id,
+            //DBに変な値が入ってた時はNG
             title = Title(title ?: throw IllegalStateException("")),
             kanaTitle = KanaTitle(kanaTitle ?: throw IllegalStateException("")),
             author = Author(author ?: throw IllegalStateException("")),
