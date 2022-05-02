@@ -1,5 +1,7 @@
 package net.bookmanager.usecase
 
+import net.bookmanager.usecase.register.BookRegisterParam
+import net.bookmanager.usecase.register.BookRegisterUseCase
 import net.bookmanager.usecase.repository.BookTestRepository
 import java.time.LocalDate
 import kotlin.test.Test
