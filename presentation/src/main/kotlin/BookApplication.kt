@@ -1,3 +1,4 @@
+import org.mybatis.spring.annotation.MapperScan
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan
         "net.bookmanager.presentation"
     ]
 )
+@MapperScan("net.bookmanager.infra")
 class BookApplication
 fun main(args: Array<String>) {
     runApplication<BookApplication>(*args)

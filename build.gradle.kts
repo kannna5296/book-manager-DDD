@@ -34,8 +34,11 @@ subprojects {
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter")
 		implementation("org.springframework.boot:spring-boot-starter-web")
+		// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+		implementation("org.springframework.boot:spring-boot-starter-jdbc:2.6.3")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
 		testImplementation(kotlin("test"))
 	}

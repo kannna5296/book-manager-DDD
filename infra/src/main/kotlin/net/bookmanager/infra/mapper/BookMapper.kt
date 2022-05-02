@@ -21,10 +21,10 @@ interface BookMapper {
         VALUES
             (            
             #{title},
-            #{kana_title},
+            #{kanaTitle},
             #{author},
-            #{kana_author},
-            #{release_date})
+            #{kanaAuthor},
+            #{releaseDate})
         """
     )
     @Options(useGeneratedKeys = true, keyProperty = "id")
