@@ -7,7 +7,7 @@ class Rental(id: Int? = null,
              val userId: UserId,
              val bookId: BookId,
              val rentalDate: RentalDate,
-             val returnDeadLine: ReturnDeadLine): DomainEntity(id) {
+             val returnDeadline: ReturnDeadline): DomainEntity(id) {
 
     //ファクトリメソッド
     companion object{
@@ -17,7 +17,7 @@ class Rental(id: Int? = null,
                 userId = UserId(userId),
                 bookId = BookId(bookId),
                 rentalDate = RentalDate(now),
-                returnDeadLine = ReturnDeadLine(now.plusDays(7))
+                returnDeadline = ReturnDeadline(now.plusDays(7))
             )
         }
     }

@@ -11,10 +11,10 @@ class RentalTest{
         val userId = 1
         val bookId = 1
         val inputRentalDate = RentalDate(LocalDate.of(2040,1,1))
-        val target = Rental.create(userId, bookId, inputRentalDate)
-        assertEquals(userId, target.userId)
-        assertEquals(bookId, target.bookId)
+        val target = Rental.create(userId, bookId)
+        assertEquals(userId, target.userId.value)
+        assertEquals(bookId, target.bookId.value)
         assertEquals(inputRentalDate, target.rentalDate)
-        assertEquals(ReturnDeadLine(inputRentalDate.value.plusDays(7)),target.returnDeadLine)
+        assertEquals(ReturnDeadline(inputRentalDate.value.plusDays(7)),target.returnDeadline)
     }
 }

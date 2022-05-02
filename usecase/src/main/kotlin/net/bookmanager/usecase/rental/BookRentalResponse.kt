@@ -15,6 +15,6 @@ class BookRentalResponse(
         userId = rental.userId.value,
         bookId = rental.bookId.value,
         rentalDate = rental.rentalDate.value,
-        releaseDeadline = rental.returnDeadLine.value
+        releaseDeadline = rental.returnDeadline.value
     )
 }
