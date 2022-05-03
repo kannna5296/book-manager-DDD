@@ -20,7 +20,6 @@ class BookRepository(
     }
 
     override fun findById(id: Int): Book? {
-        val entity = bookMapper.findById(id)
-        return entity.toDomainModel()
+        return bookMapper.findById(id)?.toDomainModel()
     }
 }
