@@ -19,6 +19,7 @@ class BookEntity(
         releaseDate = book.releaseDate.value
     )
 
+    //TODO Domainモデル側にreconsutructorとして持たせるのもあり？（little_handsの例でみた気もする）
     fun toDomainModel(): Book {
         return Book(
             id = id,
