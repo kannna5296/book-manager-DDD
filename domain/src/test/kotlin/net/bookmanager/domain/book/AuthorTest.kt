@@ -15,7 +15,7 @@ class AuthorTest {
 
     @Test
     fun `30文字の場合作成可能`() {
-        val input = "ア".repeat(3100)
+        val input = "ア".repeat(30)
         val target = Author(input)
         assertEquals(target.value, input)
     }
