@@ -1,5 +1,7 @@
 package net.bookmanager.presentation
 
+import net.bookmanager.usecase.detail.BookDetailResponse
+import net.bookmanager.usecase.detail.BookDetailUseCase
 import net.bookmanager.usecase.register.BookRegisterParam
 import net.bookmanager.usecase.register.BookRegisterResponse
 import net.bookmanager.usecase.register.BookRegisterUseCase
@@ -11,8 +13,14 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class BookController(
     private val bookRegisterUseCase: BookRegisterUseCase,
-    private val bookRentalUseCase: BookRentalUseCase
+    private val bookRentalUseCase: BookRentalUseCase,
+    private val bookDetailUseCase: BookDetailUseCase
 ) {
+
+    @GetMapping("/book/{bookId}")
+    fun detail(@PathVariable(required = true) bookId: Int): ResponseEntity<BookDetailResponse>{
+        return ResponseEntity.ok(bookDetailUseCase.get(bookId))
+    }
 
     @PostMapping("/book")
     fun register(@RequestBody param: BookRegisterParam):ResponseEntity<BookRegisterResponse>{
