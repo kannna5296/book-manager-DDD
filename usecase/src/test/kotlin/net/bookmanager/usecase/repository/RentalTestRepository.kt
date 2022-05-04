@@ -15,6 +15,21 @@ class RentalTestRepository : IRentalRepository {
         return rental
     }
 
+
+    override fun findByBookId(bookId: Int): Rental? {
+        val searched = data.filter {
+            it.value.bookId.value == bookId
+        }.values.toList()
+        //TODO Rentalテーブル/BookIdはunique制約必要
+        if (searched.size > 1 ) throw IllegalStateException("")
+
+        return if (searched.isEmpty()) {
+            null
+        } else {
+            searched.first()
+        }
+    }
+
     fun findById(id: Int): Rental? {
         return data[id]
     }

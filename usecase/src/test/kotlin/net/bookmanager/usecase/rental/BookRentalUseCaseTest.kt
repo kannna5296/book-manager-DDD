@@ -48,7 +48,29 @@ class BookRentalUseCaseTest {
         val rentalRepository = RentalTestRepository()
         val target = BookRentalUseCase(bookRepository,rentalRepository)
 
-        //assert
+        //act,assert
+        assertFailsWith<IllegalStateException> { target.rental(1)}
+    }
+
+    @Test
+    fun `書籍ID=1が既にレンタルされている場合、書籍ID=1の書籍をレンタル不可`() {
+        //prepare
+        val bookRepository = BookTestRepository()
+        val bookRegister = BookRegisterUseCase(bookRepository)
+        val params = BookRegisterParam(
+            title = "ONE PIECE1巻",
+            kanaTitle = "ワンピースイッカン",
+            author = "尾田栄一郎",
+            kanaAuthor = "オダエイイチロウ",
+            releaseDate = LocalDate.of(1998, 1, 1)
+        )
+        bookRegister.register(params)
+
+        val rentalRepository = RentalTestRepository()
+        val target = BookRentalUseCase(bookRepository,rentalRepository)
+        target.rental(1)
+
+        //act,assert
         assertFailsWith<IllegalStateException> { target.rental(1)}
     }
 }

@@ -19,4 +19,8 @@ class RentalRepository(
         rental.id = entity.id
         return rental
     }
+
+    override fun findByBookId(bookId: Int): Rental? {
+        return rentalMapper.findByBookId(bookId)?.toDomainModel()
+    }
 }
