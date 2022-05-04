@@ -40,7 +40,7 @@ interface BookMapper {
         WHERE id = #{id}
         """
     )
-    //TODO めっちゃ面倒
+    // TODO めっちゃ面倒
     @Results(
         value = [
             Result(column = "id", property = "id"),

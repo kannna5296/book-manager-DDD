@@ -10,7 +10,7 @@ class BookRentalResponse(
     val rentalDate: LocalDate,
     val releaseDeadline: LocalDate
 ) {
-    constructor(rental: Rental): this(
+    constructor(rental: Rental) : this(
         id = rental.id,
         userId = rental.userId.value,
         bookId = rental.bookId.value,

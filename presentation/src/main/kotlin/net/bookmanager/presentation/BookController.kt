@@ -15,12 +15,12 @@ class BookController(
 ) {
 
     @PostMapping("/book")
-    fun register(@RequestBody param: BookRegisterParam):ResponseEntity<BookRegisterResponse>{
+    fun register(@RequestBody param: BookRegisterParam): ResponseEntity<BookRegisterResponse> {
         return ResponseEntity.ok(bookRegisterUseCase.register(param))
     }
 
     @PutMapping("/book/{bookId}/rental")
-    fun rental(@PathVariable(required = true) bookId: Int):ResponseEntity<BookRentalResponse>{
+    fun rental(@PathVariable(required = true) bookId: Int): ResponseEntity<BookRentalResponse> {
         return ResponseEntity.ok(bookRentalUseCase.rental(bookId))
     }
 }

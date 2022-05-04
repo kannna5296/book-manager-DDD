@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository
 @Repository
 class RentalRepository(
     private val rentalMapper: RentalMapper
-): IRentalRepository {
+) : IRentalRepository {
 
     override fun insert(rental: Rental): Rental {
         val entity = RentalEntity(rental)
         rentalMapper.insert(entity)
-        //この行からentityにID値が入る(useGeneratedKey)
-        //DomainModelにIDがないのでentityから取得
+        // この行からentityにID値が入る(useGeneratedKey)
+        // DomainModelにIDがないのでentityから取得
         rental.id = entity.id
         return rental
     }

@@ -10,7 +10,7 @@ class BookEntity(
     var author: String? = null,
     var kanaAuthor: String? = null,
     var releaseDate: LocalDate? = null
-){
+) {
     constructor(book: Book) : this(
         title = book.title.value,
         kanaTitle = book.kanaTitle.value,
@@ -19,12 +19,12 @@ class BookEntity(
         releaseDate = book.releaseDate.value
     )
 
-    //TODO Domainモデル側にreconsutructorとして持たせるのもあり？（little_handsの例でみた気もする）
+    // TODO Domainモデル側にreconsutructorとして持たせるのもあり？（little_handsの例でみた気もする）
     fun toDomainModel(): Book {
         return Book(
             id = id,
-            //DBに変な値が入ってた時はNG
-            //TODO 共通化させたい
+            // DBに変な値が入ってた時はNG
+            // TODO 共通化させたい
             title = Title(title ?: throw IllegalStateException("")),
             kanaTitle = KanaTitle(kanaTitle ?: throw IllegalStateException("")),
             author = Author(author ?: throw IllegalStateException("")),
