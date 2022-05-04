@@ -1,4 +1,4 @@
-package net.bookmanager.usecase
+package net.bookmanager.usecase.book
 
 import net.bookmanager.usecase.register.BookRegisterParam
 import net.bookmanager.usecase.register.BookRegisterUseCase
