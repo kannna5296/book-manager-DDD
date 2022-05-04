@@ -1,6 +1,10 @@
 package net.bookmanager.infra.entity
 
-import net.bookmanager.domain.rental.*
+import net.bookmanager.domain.rental.Rental
+import net.bookmanager.domain.rental.UserId
+import net.bookmanager.domain.rental.BookId
+import net.bookmanager.domain.rental.RentalDate
+import net.bookmanager.domain.rental.ReturnDeadline
 import java.time.LocalDate
 
 class RentalEntity(
