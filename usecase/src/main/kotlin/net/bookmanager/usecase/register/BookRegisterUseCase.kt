@@ -1,4 +1,4 @@
-package net.bookmanager.usecase
+package net.bookmanager.usecase.register
 
 import net.bookmanager.domain.book.Title
 import net.bookmanager.domain.book.KanaTitle
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 class BookRegisterUseCase(
     private val bookRepository: IBookRepository
 ) {
-    fun register(param: BookRegisterParam): BookRegisterResponse{
+    fun register(param: BookRegisterParam): BookRegisterResponse {
         val book = Book(
             title = Title(param.title),
             kanaTitle = KanaTitle(param.kanaTitle),

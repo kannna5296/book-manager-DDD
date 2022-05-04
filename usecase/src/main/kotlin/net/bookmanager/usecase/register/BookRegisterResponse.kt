@@ -1,4 +1,4 @@
-package net.bookmanager.usecase
+package net.bookmanager.usecase.register
 
 import net.bookmanager.domain.book.Book
 import java.time.LocalDate

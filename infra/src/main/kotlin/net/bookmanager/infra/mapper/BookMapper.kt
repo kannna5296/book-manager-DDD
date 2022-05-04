@@ -1,10 +1,7 @@
 package net.bookmanager.infra.mapper
 
 import net.bookmanager.infra.entity.BookEntity
-import org.apache.ibatis.annotations.Insert
-import org.apache.ibatis.annotations.Mapper
-import org.apache.ibatis.annotations.Options
-import org.apache.ibatis.annotations.Select
+import org.apache.ibatis.annotations.*
 
 @Mapper
 interface BookMapper {
@@ -42,6 +39,17 @@ interface BookMapper {
         FROM book
         WHERE id = #{id}
         """
+    )
+    //TODO めっちゃ面倒
+    @Results(
+        value = [
+            Result(column = "id", property = "id"),
+            Result(column = "title", property = "title"),
+            Result(column = "kana_title", property = "kanaTitle"),
+            Result(column = "author", property = "author"),
+            Result(column = "kana_author", property = "kanaAuthor"),
+            Result(column = "release_date", property = "releaseDate"),
+        ]
     )
     fun findById(id: Int): BookEntity
 }

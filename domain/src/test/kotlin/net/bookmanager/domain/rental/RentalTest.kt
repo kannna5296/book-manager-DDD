@@ -6,15 +6,18 @@ import kotlin.test.assertEquals
 
 class RentalTest{
 
+    private val today = LocalDate.now()
+    private val after7Days = LocalDate.now().plusDays(7)
+
     @Test
     fun `ユーザーID=1_書籍ID=1_レンタル日が2040年1月1日の時作成可能`(){
         val userId = 1
         val bookId = 1
-        val inputRentalDate = RentalDate(LocalDate.of(2040,1,1))
-        val target = Rental.create(userId, bookId, inputRentalDate)
-        assertEquals(userId, target.userId)
-        assertEquals(bookId, target.bookId)
+        val inputRentalDate = RentalDate(today)
+        val target = Rental.create(userId, bookId)
+        assertEquals(userId, target.userId.value)
+        assertEquals(bookId, target.bookId.value)
         assertEquals(inputRentalDate, target.rentalDate)
-        assertEquals(ReturnDeadLine(inputRentalDate.value.plusDays(7)),target.returnDeadLine)
+        assertEquals(ReturnDeadline(after7Days),target.returnDeadline)
     }
 }
