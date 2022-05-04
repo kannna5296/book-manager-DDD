@@ -1,5 +1,5 @@
 dependencies {
-    //全部要る
+    // 全部要る
     implementation(project(":usecase"))
     implementation(project(":domain"))
     implementation(project(":infra"))

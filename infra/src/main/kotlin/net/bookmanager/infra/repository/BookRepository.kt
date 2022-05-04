@@ -9,12 +9,12 @@ import org.springframework.stereotype.Repository
 @Repository
 class BookRepository(
     private val bookMapper: BookMapper
-): IBookRepository {
+) : IBookRepository {
     override fun insert(book: Book): Book {
         val entity = BookEntity(book)
         bookMapper.insert(entity)
-        //この行からentityにID値が入る(useGeneratedKey)
-        //DomainModelにIDがないのでentityから取得
+        // この行からentityにID値が入る(useGeneratedKey)
+        // DomainModelにIDがないのでentityから取得
         book.id = entity.id
         return book
     }

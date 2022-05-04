@@ -16,8 +16,8 @@ class BookRentalUseCaseTest {
 
     @Test
     fun `書籍ID=1がすでに登録済みの場合、書籍ID=1の書籍をレンタル可能`() {
-        //TODO 共通化したい
-        //prepare
+        // TODO 共通化したい
+        // prepare
         val bookRepository = BookTestRepository()
         val bookRegister = BookRegisterUseCase(bookRepository)
         val params = BookRegisterParam(
@@ -29,12 +29,12 @@ class BookRentalUseCaseTest {
         )
         bookRegister.register(params)
 
-        //act
+        // act
         val rentalRepository = RentalTestRepository()
-        val target = BookRentalUseCase(bookRepository,rentalRepository)
+        val target = BookRentalUseCase(bookRepository, rentalRepository)
         target.rental(1)
 
-        //assert
+        // assert
         val result = rentalRepository.findById(1) ?: kotlin.test.fail("resultが取得できませんでした")
         assertEquals(1, result.bookId.value)
         assertEquals(1, result.userId.value)
@@ -46,15 +46,15 @@ class BookRentalUseCaseTest {
     fun `書籍ID=1が登録済みでない場合、書籍ID=1の書籍をレンタル不可`() {
         val bookRepository = BookTestRepository()
         val rentalRepository = RentalTestRepository()
-        val target = BookRentalUseCase(bookRepository,rentalRepository)
+        val target = BookRentalUseCase(bookRepository, rentalRepository)
 
-        //act,assert
-        assertFailsWith<IllegalStateException> { target.rental(1)}
+        // act,assert
+        assertFailsWith<IllegalStateException> { target.rental(1) }
     }
 
     @Test
     fun `書籍ID=1が既にレンタルされている場合、書籍ID=1の書籍をレンタル不可`() {
-        //prepare
+        // prepare
         val bookRepository = BookTestRepository()
         val bookRegister = BookRegisterUseCase(bookRepository)
         val params = BookRegisterParam(
@@ -67,10 +67,10 @@ class BookRentalUseCaseTest {
         bookRegister.register(params)
 
         val rentalRepository = RentalTestRepository()
-        val target = BookRentalUseCase(bookRepository,rentalRepository)
+        val target = BookRentalUseCase(bookRepository, rentalRepository)
         target.rental(1)
 
-        //act,assert
-        assertFailsWith<IllegalStateException> { target.rental(1)}
+        // act,assert
+        assertFailsWith<IllegalStateException> { target.rental(1) }
     }
 }

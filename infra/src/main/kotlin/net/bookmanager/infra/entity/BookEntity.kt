@@ -1,6 +1,11 @@
 package net.bookmanager.infra.entity
 
-import net.bookmanager.domain.book.*
+import net.bookmanager.domain.book.Book
+import net.bookmanager.domain.book.Title
+import net.bookmanager.domain.book.KanaTitle
+import net.bookmanager.domain.book.Author
+import net.bookmanager.domain.book.KanaAuthor
+import net.bookmanager.domain.book.ReleaseDate
 import java.time.LocalDate
 
 class BookEntity(
@@ -10,7 +15,7 @@ class BookEntity(
     var author: String? = null,
     var kanaAuthor: String? = null,
     var releaseDate: LocalDate? = null
-){
+) {
     constructor(book: Book) : this(
         title = book.title.value,
         kanaTitle = book.kanaTitle.value,
@@ -19,12 +24,12 @@ class BookEntity(
         releaseDate = book.releaseDate.value
     )
 
-    //TODO Domainモデル側にreconsutructorとして持たせるのもあり？（little_handsの例でみた気もする）
+    // TODO Domainモデル側にreconsutructorとして持たせるのもあり？（little_handsの例でみた気もする）
     fun toDomainModel(): Book {
         return Book(
             id = id,
-            //DBに変な値が入ってた時はNG
-            //TODO 共通化させたい
+            // DBに変な値が入ってた時はNG
+            // TODO 共通化させたい
             title = Title(title ?: throw IllegalStateException("")),
             kanaTitle = KanaTitle(kanaTitle ?: throw IllegalStateException("")),
             author = Author(author ?: throw IllegalStateException("")),
