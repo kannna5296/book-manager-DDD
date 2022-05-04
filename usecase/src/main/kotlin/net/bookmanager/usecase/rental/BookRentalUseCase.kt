@@ -13,21 +13,20 @@ class BookRentalUseCase(
     private val rentalRepository: IRentalRepository
 ) {
     fun rental(bookId: Int): BookRentalResponse {
-        //本が登録済みかチェック
+        // 本が登録済みかチェック
         val bookExistenceCheck = BookExistenceCheck(bookRepository)
         bookExistenceCheck.exists(bookId)
 
-        //すでにレンタルされていないかチェック
+        // すでにレンタルされていないかチェック
         val alreadyRentalCheck = AlreadyRentalCheck(rentalRepository)
         alreadyRentalCheck.isAvailable(bookId)
 
         val rental = Rental.create(
-            //TODO　ログイン周り整ったらuserIdは追加
+            // TODO　ログイン周り整ったらuserIdは追加
             userId = 1,
             bookId = bookId
         )
         val createdRental = rentalRepository.insert(rental)
         return BookRentalResponse(createdRental)
     }
-
 }

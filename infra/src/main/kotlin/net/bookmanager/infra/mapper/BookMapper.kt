@@ -1,7 +1,12 @@
 package net.bookmanager.infra.mapper
 
 import net.bookmanager.infra.entity.BookEntity
-import org.apache.ibatis.annotations.*
+import org.apache.ibatis.annotations.Mapper
+import org.apache.ibatis.annotations.Insert
+import org.apache.ibatis.annotations.Select
+import org.apache.ibatis.annotations.Options
+import org.apache.ibatis.annotations.Results
+import org.apache.ibatis.annotations.Result
 
 @Mapper
 interface BookMapper {
@@ -40,7 +45,7 @@ interface BookMapper {
         WHERE id = #{id}
         """
     )
-    //TODO めっちゃ面倒
+    // TODO めっちゃ面倒
     @Results(
         value = [
             Result(column = "id", property = "id"),

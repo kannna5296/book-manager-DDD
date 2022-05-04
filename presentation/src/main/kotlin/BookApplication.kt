@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan
         "net.bookmanager.presentation"
     ]
 )
-//mapperがスキャンできず、明示的に追加（ホントは要らんっぽい?)
+// mapperがスキャンできず、明示的に追加（ホントは要らんっぽい?)
 @MapperScan("net.bookmanager.infra")
 class BookApplication
 fun main(args: Array<String>) {

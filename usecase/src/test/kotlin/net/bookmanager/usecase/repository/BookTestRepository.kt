@@ -9,7 +9,7 @@ class BookTestRepository : IBookRepository {
     private var data = mutableMapOf<Int, Book>()
 
     override fun insert(book: Book): Book {
-        //メモリ上でデータ登録を再現
+        // メモリ上でデータ登録を再現
         book.id = id
         data[id] = book
         id ++
@@ -19,5 +19,4 @@ class BookTestRepository : IBookRepository {
     override fun findById(id: Int): Book? {
         return data[id]
     }
-
 }
