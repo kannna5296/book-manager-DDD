@@ -1,5 +1,5 @@
 dependencies {
-    //implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1")
+    // implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1")
     // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
     implementation("org.springframework.data:spring-data-jpa:2.6.1")
     // https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api
