@@ -1,8 +1,6 @@
 package net.bookmanager.infra.entity
 
 import net.bookmanager.domain.rental.Rental
-import net.bookmanager.domain.rental.UserId
-import net.bookmanager.domain.rental.BookId
 import net.bookmanager.domain.rental.RentalDate
 import net.bookmanager.domain.rental.ReturnDeadline
 import java.time.LocalDate
@@ -15,8 +13,8 @@ class RentalEntity(
     val returnDeadline: LocalDate?
 ) {
     constructor(rental: Rental) : this(
-        userId = rental.userId.value,
-        bookId = rental.bookId.value,
+        userId = rental.userId,
+        bookId = rental.bookId,
         rentalDate = rental.rentalDate.value,
         returnDeadline = rental.returnDeadline.value
     )
@@ -26,8 +24,8 @@ class RentalEntity(
             id = id,
             // DBに変な値が入ってた時はNG
             // TODO 共通化させたい
-            userId = UserId(userId ?: throw IllegalStateException("")),
-            bookId = BookId(bookId ?: throw IllegalStateException("")),
+            userId = userId ?: throw IllegalStateException(""),
+            bookId = bookId ?: throw IllegalStateException(""),
             rentalDate = RentalDate(rentalDate ?: throw IllegalStateException("")),
             returnDeadline = ReturnDeadline(returnDeadline ?: throw IllegalStateException("")),
         )

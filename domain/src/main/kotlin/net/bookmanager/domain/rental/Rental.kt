@@ -5,8 +5,8 @@ import java.time.LocalDate
 
 class Rental(
     id: Int? = null,
-    val userId: UserId,
-    val bookId: BookId,
+    val userId: Int,
+    val bookId: Int,
     val rentalDate: RentalDate,
     val returnDeadline: ReturnDeadline
 ) : DomainEntity(id) {
@@ -16,8 +16,8 @@ class Rental(
         fun create(userId: Int, bookId: Int): Rental {
             val now = LocalDate.now()
             return Rental(
-                userId = UserId(userId),
-                bookId = BookId(bookId),
+                userId = userId,
+                bookId = bookId,
                 rentalDate = RentalDate(now),
                 returnDeadline = ReturnDeadline(now.plusDays(7))
             )

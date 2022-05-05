@@ -17,10 +17,10 @@ class RentalTestRepository : IRentalRepository {
 
     override fun findByBookId(bookId: Int): Rental? {
         val searched = data.filter {
-            it.value.bookId.value == bookId
+            it.value.bookId == bookId
         }.values.toList()
         // TODO Rentalテーブル/BookIdはunique制約必要
-        if (searched.size > 1) throw IllegalStateException("")
+        if (searched.size > 1) throw IllegalStateException("同じ書籍IDのレンタルデータが存在します")
 
         return if (searched.isEmpty()) {
             null

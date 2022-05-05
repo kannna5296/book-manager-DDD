@@ -1,11 +1,11 @@
 package net.bookmanager.infra.entity
 
-import net.bookmanager.domain.book.Book
-import net.bookmanager.domain.book.Title
-import net.bookmanager.domain.book.KanaTitle
 import net.bookmanager.domain.book.Author
+import net.bookmanager.domain.book.Book
 import net.bookmanager.domain.book.KanaAuthor
+import net.bookmanager.domain.book.KanaTitle
 import net.bookmanager.domain.book.ReleaseDate
+import net.bookmanager.domain.book.Title
 import java.time.LocalDate
 
 class BookEntity(

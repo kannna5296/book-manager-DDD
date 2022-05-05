@@ -8,11 +8,12 @@ import net.bookmanager.usecase.register.BookRegisterUseCase
 import net.bookmanager.usecase.rental.BookRentalResponse
 import net.bookmanager.usecase.rental.BookRentalUseCase
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class BookController(
@@ -22,7 +23,7 @@ class BookController(
 ) {
 
     @GetMapping("/book/{bookId}")
-    fun detail(@PathVariable(required = true) bookId: Int): ResponseEntity<BookDetailResponse>{
+    fun detail(@PathVariable(required = true) bookId: Int): ResponseEntity<BookDetailResponse> {
         return ResponseEntity.ok(bookDetailUseCase.get(bookId))
     }
 

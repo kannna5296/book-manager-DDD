@@ -12,8 +12,8 @@ class BookRentalResponse(
 ) {
     constructor(rental: Rental) : this(
         id = rental.id,
-        userId = rental.userId.value,
-        bookId = rental.bookId.value,
+        userId = rental.userId,
+        bookId = rental.bookId,
         rentalDate = rental.rentalDate.value,
         releaseDeadline = rental.returnDeadline.value
     )
