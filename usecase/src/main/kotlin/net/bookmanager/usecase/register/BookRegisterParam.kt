@@ -8,5 +8,4 @@ class BookRegisterParam(
     val author: String,
     val kanaAuthor: String,
     val releaseDate: LocalDate
-    // TODO 適当コメント
 )
