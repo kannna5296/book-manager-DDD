@@ -36,8 +36,8 @@ class BookRentalUseCaseTest {
 
         // assert
         val result = rentalRepository.findById(1) ?: kotlin.test.fail("resultが取得できませんでした")
-        assertEquals(1, result.bookId.value)
-        assertEquals(1, result.userId.value)
+        assertEquals(1, result.bookId)
+        assertEquals(1, result.userId)
         assertEquals(today, result.rentalDate.value)
         assertEquals(after7Days, result.returnDeadline.value)
     }
