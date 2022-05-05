@@ -15,9 +15,11 @@ class BookDetailUseCase(
         val bookExistenceCheck = BookExistenceCheck(bookRepository)
         bookExistenceCheck.exists(bookId)
 
+        // TODO bookの取得が2度手間になっている
         val book = bookRepository.findById(bookId)
         val rental = rentalRepository.findByBookId(bookId)
         // bookは存在チェック済みのため、!!として問題ないと判断
+        // TODO この辺性能考えたい
         return BookDetailResponse(book!!, rental)
     }
 }
