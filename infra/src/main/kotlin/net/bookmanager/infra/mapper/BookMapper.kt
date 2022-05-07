@@ -58,6 +58,7 @@ interface BookMapper {
     )
     fun findById(id: Int): BookEntity
 
+    //TODO <script>と<where>(条件検索)と<choose>使う
     @Select(
         """
         SELECT
@@ -84,5 +85,5 @@ interface BookMapper {
             Result(column = "release_date", property = "releaseDate"),
         ]
     )
-    fun search(kanaTitle: String, kanaAuthor: String): List<BookEntity>
+    fun search(kanaTitle: String, kanaAuthor: String, isRental: Boolean?): List<BookEntity>
 }
