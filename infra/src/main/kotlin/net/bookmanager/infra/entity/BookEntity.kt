@@ -33,7 +33,7 @@ class BookEntity(
             title = Title(title ?: throw IllegalStateException("")),
             kanaTitle = KanaTitle(kanaTitle ?: throw IllegalStateException("")),
             author = Author(author ?: throw IllegalStateException("")),
-            kanaAuthor = KanaAuthor(kanaTitle ?: throw IllegalStateException("")),
+            kanaAuthor = KanaAuthor(kanaAuthor ?: throw IllegalStateException("")),
             releaseDate = ReleaseDate(releaseDate ?: throw IllegalStateException("")),
         )
     }

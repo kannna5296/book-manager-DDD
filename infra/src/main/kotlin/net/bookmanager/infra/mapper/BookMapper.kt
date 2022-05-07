@@ -57,4 +57,32 @@ interface BookMapper {
         ]
     )
     fun findById(id: Int): BookEntity
+
+    @Select(
+        """
+        SELECT
+            id,
+            title,
+            kana_title,
+            author,
+            kana_author,
+            release_date
+        FROM book
+        WHERE 
+            kana_title LIKE CONCAT(#{kanaTitle}, '%')
+            AND
+            kana_author LIKE CONCAT(#{kanaAuthor}, '%')
+        """
+    )
+    @Results(
+        value = [
+            Result(column = "id", property = "id"),
+            Result(column = "title", property = "title"),
+            Result(column = "kana_title", property = "kanaTitle"),
+            Result(column = "author", property = "author"),
+            Result(column = "kana_author", property = "kanaAuthor"),
+            Result(column = "release_date", property = "releaseDate"),
+        ]
+    )
+    fun search(kanaTitle: String, kanaAuthor: String): List<BookEntity>
 }

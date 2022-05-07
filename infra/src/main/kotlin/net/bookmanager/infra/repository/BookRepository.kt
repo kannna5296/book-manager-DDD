@@ -22,4 +22,10 @@ class BookRepository(
     override fun findById(id: Int): Book? {
         return bookMapper.findById(id)?.toDomainModel()
     }
+
+    override fun search(kanaTitle: String, kanaAuthor: String): List<Book> {
+        return bookMapper.search(kanaTitle,kanaAuthor).map {
+            it.toDomainModel()
+        }
+    }
 }
