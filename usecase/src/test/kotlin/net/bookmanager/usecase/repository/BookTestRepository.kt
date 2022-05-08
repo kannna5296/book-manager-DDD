@@ -19,4 +19,9 @@ class BookTestRepository : IBookRepository {
     override fun findById(id: Int): Book? {
         return data[id]
     }
+
+    //TODO テストしづらい！！！
+    override fun search(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?): List<Book> {
+        return data.values.toList()
+    }
 }
