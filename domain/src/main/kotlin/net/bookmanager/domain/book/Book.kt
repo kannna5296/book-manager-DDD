@@ -8,5 +8,6 @@ class Book(
     var kanaTitle: KanaTitle,
     var author: Author,
     var kanaAuthor: KanaAuthor,
-    var releaseDate: ReleaseDate
+    var releaseDate: ReleaseDate,
+    var userId: Int? = null
 ) : DomainEntity(id)
