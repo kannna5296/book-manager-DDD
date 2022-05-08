@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Options
 import org.apache.ibatis.annotations.Result
 import org.apache.ibatis.annotations.Results
 import org.apache.ibatis.annotations.Select
+import org.springframework.data.domain.Pageable
 
 @Mapper
 interface BookMapper {
@@ -79,6 +80,12 @@ interface BookMapper {
             <if test="isRental and isRental != null"> AND r.user_id IS NOT NULL</if>
             <if test="!isRental and isRental != null"> AND r.user_id IS NULL</if>
         </where>
+        ORDER BY 
+            b.id
+        LIMIT
+            #{pageable.pageSize}
+        OFFSET
+            #{pageable.offset}
     </script>
         """
     )
@@ -93,5 +100,5 @@ interface BookMapper {
             Result(column = "user_id", property = "userId")
         ]
     )
-    fun findByKanaTitleAndKanaAuthorAndIsRental(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?): List<BookEntity>
+    fun findByKanaTitleAndKanaAuthorAndIsRental(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?, pageable: Pageable): List<BookEntity>
 }
