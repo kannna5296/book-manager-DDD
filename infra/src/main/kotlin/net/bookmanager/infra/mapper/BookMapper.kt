@@ -93,5 +93,5 @@ interface BookMapper {
             Result(column = "user_id", property = "userId")
         ]
     )
-    fun search(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?): List<BookEntity>
+    fun findByKanaTitleAndKanaAuthorAndIsRental(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?): List<BookEntity>
 }
