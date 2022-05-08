@@ -58,7 +58,7 @@ interface BookMapper {
     )
     fun findById(id: Int): BookEntity
 
-    //TODO <script>と<where>(条件検索)と<choose>使う
+    // TODO <script>と<where>(条件検索)と<choose>使う
     @Select(
         """
     <script>        

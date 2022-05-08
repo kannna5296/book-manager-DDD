@@ -20,7 +20,7 @@ class BookTestRepository : IBookRepository {
         return data[id]
     }
 
-    //TODO テストしづらい！！！
+    // TODO テストしづらい！！！
     override fun search(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?): List<Book> {
         return data.values.toList()
     }
