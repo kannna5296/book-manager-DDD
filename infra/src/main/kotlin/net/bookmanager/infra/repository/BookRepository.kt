@@ -23,7 +23,7 @@ class BookRepository(
         return bookMapper.findById(id)?.toDomainModel()
     }
 
-    override fun search(kanaTitle: String, kanaAuthor: String, isRental: Boolean?): List<Book> {
+    override fun search(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?): List<Book> {
         return bookMapper.search(kanaTitle,kanaAuthor,isRental).map {
             it.toDomainModel()
         }

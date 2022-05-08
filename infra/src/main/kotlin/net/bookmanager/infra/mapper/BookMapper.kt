@@ -61,18 +61,25 @@ interface BookMapper {
     //TODO <script>と<where>(条件検索)と<choose>使う
     @Select(
         """
+    <script>        
         SELECT
-            id,
-            title,
-            kana_title,
-            author,
-            kana_author,
-            release_date
-        FROM book
-        WHERE 
-            kana_title LIKE CONCAT(#{kanaTitle}, '%')
-            AND
-            kana_author LIKE CONCAT(#{kanaAuthor}, '%')
+            b.id,
+            b.title,
+            b.kana_title,
+            b.author,
+            b.kana_author,
+            b.release_date,
+            r.user_id
+        FROM book b
+        LEFT JOIN rental r
+            ON b.id = r.book_id
+        <where>
+            <if test="kanaTitle != null and kanaTitle != ''"> AND b.kana_title LIKE CONCAT(#{kanaTitle}, '%')</if>
+            <if test="kanaAuthor != null and kanaAuthor != ''"> AND b.kana_author LIKE CONCAT(#{kanaAuthor}, '%')</if>
+            <if test="isRental and isRental != null"> AND r.user_id IS NOT NULL</if>
+            <if test="!isRental and isRental != null"> AND r.user_id IS NULL</if>
+        </where>
+    </script>
         """
     )
     @Results(
@@ -83,7 +90,8 @@ interface BookMapper {
             Result(column = "author", property = "author"),
             Result(column = "kana_author", property = "kanaAuthor"),
             Result(column = "release_date", property = "releaseDate"),
+            Result(column = "user_id", property = "userId")
         ]
     )
-    fun search(kanaTitle: String, kanaAuthor: String, isRental: Boolean?): List<BookEntity>
+    fun search(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?): List<BookEntity>
 }

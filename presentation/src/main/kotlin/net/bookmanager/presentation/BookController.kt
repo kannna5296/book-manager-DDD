@@ -32,7 +32,6 @@ class BookController(
         return ResponseEntity.ok(bookSearchUseCase.search(form))
     }
 
-
     @GetMapping("/book/{bookId}")
     fun detail(@PathVariable(required = true) bookId: Int): ResponseEntity<BookDetailResponse> {
         return ResponseEntity.ok(bookDetailUseCase.get(bookId))
