@@ -10,6 +10,9 @@ import net.bookmanager.usecase.rental.BookRentalUseCase
 import net.bookmanager.usecase.search.BookSearchResponse
 import net.bookmanager.usecase.search.BookSearchUseCase
 import net.bookmanager.usecase.search.SearchForm
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageImpl
+import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
@@ -28,8 +31,10 @@ class BookController(
 ) {
 
     @GetMapping("/book/search")
-    fun search(@ModelAttribute form: SearchForm): ResponseEntity<List<BookSearchResponse>> {
-        return ResponseEntity.ok(bookSearchUseCase.search(form))
+    fun searchA(@ModelAttribute form: SearchForm, pageable: Pageable): ResponseEntity<Page<BookSearchResponse>> {
+        val result = bookSearchUseCase.search(form, pageable)
+        val page: Page<BookSearchResponse> = PageImpl<BookSearchResponse>(result, pageable, result.size.toLong())
+        return ResponseEntity.ok(page)
     }
 
     @GetMapping("/book/{bookId}")
