@@ -40,6 +40,9 @@ subprojects {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         // https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
         implementation("org.springframework.data:spring-data-commons:2.6.3")
+        // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+        implementation("org.hibernate:hibernate-core:5.6.5.Final")
+
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation(kotlin("test"))
