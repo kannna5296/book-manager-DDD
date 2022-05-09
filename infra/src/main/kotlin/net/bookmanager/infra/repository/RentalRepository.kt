@@ -5,8 +5,10 @@ import net.bookmanager.domain.rental.Rental
 import net.bookmanager.infra.entity.RentalEntity
 import net.bookmanager.infra.mapper.RentalMapper
 import org.springframework.stereotype.Repository
+import org.springframework.transaction.annotation.Transactional
 
 @Repository
+@Transactional
 class RentalRepository(
     private val rentalMapper: RentalMapper
 ) : IRentalRepository {

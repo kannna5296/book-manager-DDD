@@ -6,8 +6,10 @@ import net.bookmanager.infra.entity.BookEntity
 import net.bookmanager.infra.mapper.BookMapper
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
+import org.springframework.transaction.annotation.Transactional
 
 @Repository
+@Transactional
 class BookRepository(
     private val bookMapper: BookMapper
 ) : IBookRepository {
