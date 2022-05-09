@@ -7,7 +7,10 @@ import net.bookmanager.domain.book.KanaTitle
 import net.bookmanager.domain.book.ReleaseDate
 import net.bookmanager.domain.book.Title
 import java.time.LocalDate
+import javax.persistence.Entity
 
+// DDDでいうEntityとは別
+@Entity
 class BookEntity(
     var id: Int? = null,
     var title: String? = null,

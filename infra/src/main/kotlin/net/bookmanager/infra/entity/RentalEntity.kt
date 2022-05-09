@@ -4,7 +4,9 @@ import net.bookmanager.domain.rental.Rental
 import net.bookmanager.domain.rental.RentalDate
 import net.bookmanager.domain.rental.ReturnDeadline
 import java.time.LocalDate
+import javax.persistence.Entity
 
+@Entity
 class RentalEntity(
     var id: Int? = null,
     val userId: Int?,
