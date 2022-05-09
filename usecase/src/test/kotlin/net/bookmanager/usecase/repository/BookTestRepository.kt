@@ -2,6 +2,7 @@ package net.bookmanager.usecase.repository
 
 import net.bookmanager.domain.book.Book
 import net.bookmanager.domain.book.IBookRepository
+import org.springframework.data.domain.Pageable
 
 class BookTestRepository : IBookRepository {
 
@@ -18,5 +19,10 @@ class BookTestRepository : IBookRepository {
 
     override fun findById(id: Int): Book? {
         return data[id]
+    }
+
+    // TODO テストしづらい！！！
+    override fun search(kanaTitle: String?, kanaAuthor: String?, isRental: Boolean?, pageable: Pageable): List<Book> {
+        return data.values.toList()
     }
 }

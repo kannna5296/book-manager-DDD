@@ -7,8 +7,15 @@ import net.bookmanager.usecase.register.BookRegisterResponse
 import net.bookmanager.usecase.register.BookRegisterUseCase
 import net.bookmanager.usecase.rental.BookRentalResponse
 import net.bookmanager.usecase.rental.BookRentalUseCase
+import net.bookmanager.usecase.search.BookSearchResponse
+import net.bookmanager.usecase.search.BookSearchUseCase
+import net.bookmanager.usecase.search.SearchForm
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageImpl
+import org.springframework.data.domain.Pageable
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -19,8 +26,16 @@ import org.springframework.web.bind.annotation.RestController
 class BookController(
     private val bookRegisterUseCase: BookRegisterUseCase,
     private val bookRentalUseCase: BookRentalUseCase,
-    private val bookDetailUseCase: BookDetailUseCase
+    private val bookDetailUseCase: BookDetailUseCase,
+    private val bookSearchUseCase: BookSearchUseCase
 ) {
+
+    @GetMapping("/book/search")
+    fun searchA(@ModelAttribute form: SearchForm, pageable: Pageable): ResponseEntity<Page<BookSearchResponse>> {
+        val result = bookSearchUseCase.search(form, pageable)
+        val page: Page<BookSearchResponse> = PageImpl<BookSearchResponse>(result, pageable, result.size.toLong())
+        return ResponseEntity.ok(page)
+    }
 
     @GetMapping("/book/{bookId}")
     fun detail(@PathVariable(required = true) bookId: Int): ResponseEntity<BookDetailResponse> {
