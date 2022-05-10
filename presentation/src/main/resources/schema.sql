@@ -28,4 +28,4 @@ CREATE TABLE course (
 CREATE TABLE course_like (
   student_id INT,
   course_id  INT
-)
+);
