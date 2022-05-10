@@ -1,5 +1,8 @@
 package net.bookmanager.presentation
 
+import net.bookmanager.infra.jpa.entity.CourseEntity
+import net.bookmanager.infra.jpa.entity.StudentEntity
+import net.bookmanager.infra.jpa.repository.StudentJpaRepository
 import net.bookmanager.usecase.detail.BookDetailResponse
 import net.bookmanager.usecase.detail.BookDetailUseCase
 import net.bookmanager.usecase.register.BookRegisterParam
@@ -27,8 +30,24 @@ class BookController(
     private val bookRegisterUseCase: BookRegisterUseCase,
     private val bookRentalUseCase: BookRentalUseCase,
     private val bookDetailUseCase: BookDetailUseCase,
-    private val bookSearchUseCase: BookSearchUseCase
+    private val bookSearchUseCase: BookSearchUseCase,
+    private val studentJpaRepository: StudentJpaRepository
 ) {
+
+    @PostMapping("/student")
+    fun student(): ResponseEntity<StudentEntity> {
+        val courseEntity1 = CourseEntity(name = "course1")
+        val courseEntity2 = CourseEntity(name = "course2")
+        val student = StudentEntity(name = "test_student", likedCourse = listOf(courseEntity1,courseEntity2))
+        val result = studentJpaRepository.save(student)
+        return ResponseEntity.ok(result)
+    }
+
+    @GetMapping("/student")
+    fun getStudent(): ResponseEntity<StudentEntity> {
+        val result = studentJpaRepository.getById(1)
+        return ResponseEntity.ok(result)
+    }
 
     @GetMapping("/book/search")
     fun searchA(@ModelAttribute form: SearchForm, pageable: Pageable): ResponseEntity<Page<BookSearchResponse>> {
