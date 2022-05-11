@@ -41,6 +41,11 @@ subprojects {
         // https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
         implementation("org.springframework.data:spring-data-commons:2.6.3")
 
+        implementation("org.springframework.data:spring-data-jpa:2.6.1")
+        implementation("javax.persistence:javax.persistence-api:2.2")
+        implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.6.6")
+        implementation("org.hibernate:hibernate-core:5.6.5.Final")
+
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation(kotlin("test"))
     }

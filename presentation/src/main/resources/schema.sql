@@ -14,3 +14,18 @@ CREATE TABLE rental (
   rental_date DATETIME,
   return_deadline DATETIME
 );
+
+CREATE TABLE student (
+  id IDENTITY NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255)
+);
+
+CREATE TABLE course (
+  id IDENTITY NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255)
+);
+
+CREATE TABLE course_like (
+  student_id INT,
+  course_id  INT
+);

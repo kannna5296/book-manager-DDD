@@ -8,10 +8,19 @@ spring:
   h2:
     console:
       enabled: true
+  jpa:
+    show-sql: true
 logging:
   level:
     org:
       springframework: WARN
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
+          EnumType: trace
     net:
       bookmanager:
         infra:

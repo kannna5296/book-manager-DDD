@@ -1,5 +1,9 @@
 package net.bookmanager.presentation
 
+import net.bookmanager.infra.jpa.entity.CourseEntity
+import net.bookmanager.infra.jpa.entity.StudentEntity
+import net.bookmanager.infra.jpa.repository.CourseJpaRepository
+import net.bookmanager.infra.jpa.repository.StudentJpaRepository
 import net.bookmanager.usecase.detail.BookDetailResponse
 import net.bookmanager.usecase.detail.BookDetailUseCase
 import net.bookmanager.usecase.register.BookRegisterParam
@@ -27,8 +31,38 @@ class BookController(
     private val bookRegisterUseCase: BookRegisterUseCase,
     private val bookRentalUseCase: BookRentalUseCase,
     private val bookDetailUseCase: BookDetailUseCase,
-    private val bookSearchUseCase: BookSearchUseCase
+    private val bookSearchUseCase: BookSearchUseCase,
+    private val studentJpaRepository: StudentJpaRepository,
+    private val courceJpaRepository: CourseJpaRepository
 ) {
+
+    @PostMapping("/student")
+    fun student(): ResponseEntity<StudentEntity> {
+        // リクエストボディ生成の代わり
+        // ホントはドメインエンティティ
+        val courseEntity1 = CourseEntity(name = "math")
+        val courseEntity2 = CourseEntity(name = "science")
+        val student = StudentEntity(name = "test_student", likedCourse = listOf(courseEntity1, courseEntity2))
+        // ここまでリクエストボディ生成（usecase層でやること）
+
+        // ここからインフラ層のお話
+        // 作られたDomainEntityを基に、infra用エンティティを生成（今は両方infra用entityにしてるけど）
+        val newStudent = StudentEntity(
+            name = student.name,
+            likedCourse = student.likedCourse.map {
+                // ホントは!!やめる
+                courceJpaRepository.findByName(it.name!!)
+            }
+        )
+        val result = studentJpaRepository.save(newStudent)
+        return ResponseEntity.ok(result)
+    }
+
+    @GetMapping("/student")
+    fun getStudent(): ResponseEntity<StudentEntity> {
+        val result = studentJpaRepository.getById(1)
+        return ResponseEntity.ok(result)
+    }
 
     @GetMapping("/book/search")
     fun searchA(@ModelAttribute form: SearchForm, pageable: Pageable): ResponseEntity<Page<BookSearchResponse>> {
