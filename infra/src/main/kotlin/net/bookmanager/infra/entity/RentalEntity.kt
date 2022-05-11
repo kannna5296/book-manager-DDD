@@ -4,8 +4,15 @@ import net.bookmanager.domain.rental.Rental
 import net.bookmanager.domain.rental.RentalDate
 import net.bookmanager.domain.rental.ReturnDeadline
 import java.time.LocalDate
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
 
+@Entity
 class RentalEntity(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int? = null,
     val userId: Int?,
     val bookId: Int?,

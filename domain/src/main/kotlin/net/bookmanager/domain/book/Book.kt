@@ -1,6 +1,7 @@
 package net.bookmanager.domain.book
 
 import net.bookmanager.domain.DomainEntity
+import net.bookmanager.domain.rental.Rental
 
 class Book(
     id: Int? = null,
@@ -9,5 +10,5 @@ class Book(
     var author: Author,
     var kanaAuthor: KanaAuthor,
     var releaseDate: ReleaseDate,
-    var userId: Int? = null
+    var rental: Rental? = null
 ) : DomainEntity(id)
