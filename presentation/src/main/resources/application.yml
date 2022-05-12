@@ -8,10 +8,11 @@ spring:
   h2:
     console:
       enabled: true
+  messages:
+    basename: i18n/Messages
+    cache-duration: -1
+    encoding: UTF-8
 logging:
-  level:
-    org:
-      springframework: WARN
     net:
       bookmanager:
         infra:

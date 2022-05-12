@@ -2,6 +2,7 @@ package net.bookmanager.domain.user
 
 import net.bookmanager.domain.ValueObject
 
+//D012
 data class Password(val value: String) : ValueObject {
 
     companion object {
@@ -13,8 +14,8 @@ data class Password(val value: String) : ValueObject {
     }
 
     private fun checkPassword(value: String) {
-        require(value.length >= 8) {}
-        require(value.length <= 20) {}
-        require(value.matches(REGEX_ALPHA_NUM))
+        require(value.length >= 8) { "E-D012-001" }
+        require(value.length <= 20) { "E-D012-002" }
+        require(value.matches(REGEX_ALPHA_NUM)) { "E-D012-003" }
     }
 }

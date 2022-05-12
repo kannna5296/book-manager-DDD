@@ -1,5 +1,6 @@
 package net.bookmanager.domain
 
+//D016
 class UserExistenceCheck(
 
     // TODO IUerRepositoryなど実装

@@ -2,6 +2,7 @@ package net.bookmanager.domain.user
 
 import net.bookmanager.domain.ValueObject
 
+//D010
 data class Email(val value: String) : ValueObject {
 
     companion object {
@@ -13,6 +14,6 @@ data class Email(val value: String) : ValueObject {
     }
 
     private fun validateEmail(value: String) {
-        require(value.matches(EMAIL_REGEX))
+        require(value.matches(EMAIL_REGEX)) { "E-D010-001" }
     }
 }

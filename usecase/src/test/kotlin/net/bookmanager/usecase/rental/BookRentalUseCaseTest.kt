@@ -49,7 +49,7 @@ class BookRentalUseCaseTest {
         val target = BookRentalUseCase(bookRepository, rentalRepository)
 
         // act,assert
-        assertFailsWith<IllegalStateException> { target.rental(1) }
+        assertFailsWith<IllegalArgumentException> { target.rental(1) }
     }
 
     @Test
@@ -71,6 +71,6 @@ class BookRentalUseCaseTest {
         target.rental(1)
 
         // act,assert
-        assertFailsWith<IllegalStateException> { target.rental(1) }
+        assertFailsWith<IllegalArgumentException> { target.rental(1) }
     }
 }
