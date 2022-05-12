@@ -2,6 +2,7 @@ package net.bookmanager.domain.book
 
 import net.bookmanager.domain.ValueObject
 
+//D004
 data class KanaTitle(val value: String) : ValueObject {
 
     companion object {
@@ -13,8 +14,8 @@ data class KanaTitle(val value: String) : ValueObject {
     }
 
     private fun validateKanaTitle(value: String) {
-        require(value.isNotEmpty()) { "" }
-        require(value.length <= 50) { "" }
-        require(value.matches(KanaAuthor.ZENKAKU_REGEX))
+        require(value.isNotEmpty()) { "E-D004-001" }
+        require(value.length <= 50) { "E-D004-002" }
+        require(value.matches(KanaAuthor.ZENKAKU_REGEX)) { "E-D004-003" }
     }
 }

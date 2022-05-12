@@ -2,6 +2,7 @@ package net.bookmanager.domain.book
 
 import net.bookmanager.domain.DomainEntity
 
+//D002
 class Book(
     id: Int? = null,
     var title: Title,

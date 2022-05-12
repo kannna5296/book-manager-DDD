@@ -3,6 +3,7 @@ package net.bookmanager.domain.rental
 import net.bookmanager.domain.DomainEntity
 import java.time.LocalDate
 
+//D007
 class Rental(
     id: Int? = null,
     val userId: Int,
